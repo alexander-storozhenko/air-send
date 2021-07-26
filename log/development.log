@@ -1,0 +1,213 @@
+  [1m[35m (114.1ms)[0m  [1m[35mCREATE DATABASE "air_chat_dev" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (47.6ms)[0m  [1m[35mCREATE DATABASE "air_caht_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (40.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "air_chat_dev"[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "air_chat_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (126.0ms)[0m  [1m[35mCREATE DATABASE "air_chat_dev" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (51.3ms)[0m  [1m[35mCREATE DATABASE "air_chat_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2021-07-26 23:58:28 +0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/alexander/.rvm/gems/ruby-2.6.5/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (2.8ms)
+Completed 200 OK in 12ms (Views: 7.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for ::1 at 2021-07-26 23:58:32 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/admin"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/admin" for ::1 at 2021-07-26 23:59:14 +0700
+Processing by RailsAdmin::MainController#dashboard as HTML
+  Rendering /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (6.4ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/_head.html.haml (1515.8ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/_secondary_navigation.html.haml (3.4ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/_navigation.html.haml (7.3ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (1.3ms)
+  Rendering /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/pjax.html.haml (3.2ms)
+Completed 200 OK in 1929ms (Views: 1544.5ms | ActiveRecord: 47.4ms)
+
+
+  [1m[35m (103.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "air_chat_dev"[0m
+  ↳ bin/rails:9
+  [1m[35m (65.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "air_chat_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (139.2ms)[0m  [1m[35mCREATE DATABASE "air_chat_dev" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (44.2ms)[0m  [1m[35mCREATE DATABASE "air_chat_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2021-07-27 00:04:24 +0700
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.6) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.6) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  [1m[35m (12.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (44.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8008819714756333830)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateUsers (20210726170409)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (40.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "confirmation_token" character varying, "confirmed_at" timestamp, "confirmation_sent_at" timestamp, "unconfirmed_email" character varying, "failed_attempts" integer DEFAULT 0 NOT NULL, "unlock_token" character varying, "locked_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210726170409_devise_create_users.rb:5
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20210726170409_devise_create_users.rb:39
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  ↳ db/migrate/20210726170409_devise_create_users.rb:40
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_confirmation_token" ON "users"  ("confirmation_token")[0m
+  ↳ db/migrate/20210726170409_devise_create_users.rb:41
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_unlock_token" ON "users"  ("unlock_token")[0m
+  ↳ db/migrate/20210726170409_devise_create_users.rb:42
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210726170409"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-07-26 17:04:58.297979"], ["updated_at", "2021-07-26 17:04:58.297979"]]
+  ↳ bin/rails:9
+  [1m[35m (39.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8008819714756333830)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2021-07-27 00:05:05 +0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexander/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/alexander/.rvm/gems/ruby-2.6.5/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 10ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for ::1 at 2021-07-27 00:05:07 +0700
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[35m (42.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/lib/rails_admin/adapters/active_record.rb:43
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/lib/rails_admin/config/actions/dashboard.rb:34
+  Rendering /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (11.4ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/_head.html.haml (400.2ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/_secondary_navigation.html.haml (2.3ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/_navigation.html.haml (6.4ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (1.8ms)
+  Rendering /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/pjax.html.haml (2.9ms)
+Completed 200 OK in 740ms (Views: 433.5ms | ActiveRecord: 50.8ms)
+
+
+Started GET "/admin/user?_pjax=%5Bdata-pjax-container%5D" for ::1 at 2021-07-27 00:05:12 +0700
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"user"}
+  Rendering /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY users.id desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/index.html.haml:95
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (27.8ms)
+Completed 200 OK in 53ms (Views: 36.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/user/new?_pjax=%5Bdata-pjax-container%5D" for ::1 at 2021-07-27 00:05:12 +0700
+Processing by RailsAdmin::MainController#new as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"user"}
+  Rendering /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/pjax
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_field.html.haml (2.2ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_field.html.haml (0.9ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_field.html.haml (0.1ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_datetime.html.haml (1.7ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_datetime.html.haml (0.3ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_field.html.haml (1.0ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_datetime.html.haml (0.4ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_datetime.html.haml (0.3ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_datetime.html.haml (0.3ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_datetime.html.haml (0.3ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_datetime.html.haml (0.5ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_submit_buttons.html.haml (6.1ms)
+  Rendered /Users/alexander/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/pjax (56.5ms)
+Completed 200 OK in 68ms (Views: 63.9ms | ActiveRecord: 0.0ms)
+
+

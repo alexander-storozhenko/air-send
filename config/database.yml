@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  port: <%= ENV['DB_PORT'] %>
+  user: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+development:
+  <<: *default
+  database: air_chat_dev
+
+test:
+  <<: *default
+  database: air_chat_test
+
+production:
+  <<: *default
+  database: air_chat_prod

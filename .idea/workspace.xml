@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bd6c3dfc-e2d3-4d84-bfdb-dabc29a4b334" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1vrReqt4Jb9JKVRgBc7X1OjZi6y" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bd6c3dfc-e2d3-4d84-bfdb-dabc29a4b334" name="Default Changelist" comment="" />
+      <created>1627318319126</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1627318319126</updated>
+      <workItem from="1627318320560" duration="1161000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="539" y="154" key="CommitChangelistDialog2" timestamp="1627319484852">
+      <screen x="0" y="23" width="1856" height="1057" />
+    </state>
+    <state x="539" y="154" key="CommitChangelistDialog2/-1920.-46.1920.1057/0.23.1856.1057@0.23.1856.1057" timestamp="1627319484852" />
+    <state x="780" y="269" key="RollbackChangesDialog" timestamp="1627319501805">
+      <screen x="0" y="23" width="1856" height="1057" />
+    </state>
+    <state x="780" y="269" key="RollbackChangesDialog/-1920.-46.1920.1057/0.23.1856.1057@0.23.1856.1057" timestamp="1627319501805" />
+    <state x="416" y="133" key="SettingsEditor" timestamp="1627318626140">
+      <screen x="0" y="23" width="1856" height="1057" />
+    </state>
+    <state x="416" y="133" key="SettingsEditor/-1920.-46.1920.1057/0.23.1856.1057@0.23.1856.1057" timestamp="1627318626140" />
+    <state x="609" y="313" width="641" height="476" key="find.popup" timestamp="1627318996486">
+      <screen x="0" y="23" width="1859" height="1057" />
+    </state>
+    <state x="608" y="313" width="639" height="476" key="find.popup/-1920.-46.1920.1057/0.23.1856.1057@0.23.1856.1057" timestamp="1627318649533" />
+    <state x="609" y="313" width="641" height="476" key="find.popup/-1920.-46.1920.1057/0.23.1859.1057@0.23.1859.1057" timestamp="1627318996486" />
+  </component>
+</project>
