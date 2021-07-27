@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_26_170409) do
+ActiveRecord::Schema.define(version: 2021_07_27_151505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chats", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "chat_id"
+    t.index ["chat_id"], name: "index_messages_on_chat_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
