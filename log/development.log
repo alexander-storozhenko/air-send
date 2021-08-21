@@ -211,3 +211,592 @@ Processing by RailsAdmin::MainController#new as HTML
 Completed 200 OK in 68ms (Views: 63.9ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (122.5ms)[0m  [1m[35mCREATE DATABASE "air_chat_dev" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (48.5ms)[0m  [1m[35mCREATE DATABASE "air_chat_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE "air_chat_dev" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE "air_chat_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (13.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (43.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8008819714756333830)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateUsers (20210726170409)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (48.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "confirmation_token" character varying, "confirmed_at" timestamp, "confirmation_sent_at" timestamp, "unconfirmed_email" character varying, "failed_attempts" integer DEFAULT 0 NOT NULL, "unlock_token" character varying, "locked_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210726170409_devise_create_users.rb:5
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20210726170409_devise_create_users.rb:39
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  ↳ db/migrate/20210726170409_devise_create_users.rb:40
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_confirmation_token" ON "users"  ("confirmation_token")[0m
+  ↳ db/migrate/20210726170409_devise_create_users.rb:41
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_unlock_token" ON "users"  ("unlock_token")[0m
+  ↳ db/migrate/20210726170409_devise_create_users.rb:42
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210726170409"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateMessages (20210727125937)
+  [1m[35m (40.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "content" character varying, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210727125937_create_messages.rb:3
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_user_id" ON "messages"  ("user_id")[0m
+  ↳ db/migrate/20210727125937_create_messages.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210727125937"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateChats (20210727151341)
+  [1m[35m (30.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "chats" ("id" bigserial primary key, "name" character varying)[0m
+  ↳ db/migrate/20210727151341_create_chats.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210727151341"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddReferenceToChatsToMessages (20210727151505)
+  [1m[35m (26.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "messages" ADD "chat_id" bigint[0m
+  ↳ db/migrate/20210727151505_add_reference_to_chats_to_messages.rb:3
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_chat_id" ON "messages"  ("chat_id")[0m
+  ↳ db/migrate/20210727151505_add_reference_to_chats_to_messages.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210727151505"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateChatUsers (20210821095308)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (26.4ms)[0m  [1m[35mCREATE TABLE "chat_users" ("id" bigserial primary key, "user_id" bigint, "chat_id" bigint)[0m
+  ↳ db/migrate/20210821095308_create_chat_users.rb:3
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_chat_users_on_user_id" ON "chat_users"  ("user_id")[0m
+  ↳ db/migrate/20210821095308_create_chat_users.rb:3
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_chat_users_on_chat_id" ON "chat_users"  ("chat_id")[0m
+  ↳ db/migrate/20210821095308_create_chat_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210821095308"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (22.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-08-21 09:54:42.213862"], ["updated_at", "2021-08-21 09:54:42.213862"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8008819714756333830)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (42.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@a"], ["LIMIT", 1]]
+  [1m[36mChat Create (83.2ms)[0m  [1m[32mINSERT INTO "chats" DEFAULT VALUES RETURNING "id"[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@a"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "a@a"], ["encrypted_password", "$2a$12$GpAmXtO9eMLxGjy16j7.Cesy9hRRJY9bDtiiKsA.d/pWCeMazfvTa"], ["confirmation_token", "fjV1LsbgAufy2YEYC1EN"], ["confirmation_sent_at", "2021-08-21 10:23:55.408753"], ["created_at", "2021-08-21 10:23:55.408496"], ["updated_at", "2021-08-21 10:23:55.408496"]]
+  [1m[36mChatUser Create (1.2ms)[0m  [1m[32mINSERT INTO "chat_users" ("user_id", "chat_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 1], ["chat_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering /Users/storozhenko/.rvm/gems/ruby-2.6.5/gems/devise-4.8.0/app/views/devise/mailer/confirmation_instructions.html.erb
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/gems/devise-4.8.0/app/views/devise/mailer/confirmation_instructions.html.erb (3.3ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 458.3ms
+Sent mail to a@a (13.0ms)
+Date: Sat, 21 Aug 2021 17:23:56 +0700
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: a@a
+Message-ID: <6120d43c15cd3_60803ff817c3202c51554@192.168.0.3.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome a@a!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=fjV1LsbgAufy2YEYC1EN">Confirm my account</a></p>
+
+Started GET "/" for ::1 at 2021-08-21 23:43:29 +0700
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/sprockets-rails-3.2.2/lib/sprockets/rails/quiet_assets.rb:13
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/storozhenko/.rvm/gems/ruby-2.6.5/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (4.2ms)
+Completed 200 OK in 22ms (Views: 11.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:44:21 +0700
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'role' for User.):
+  
+lib/api/defaults.rb:16:in `block in authorize!'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8008819714756333830)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddRolesToUser (20210821164504)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (40.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8008819714756333830)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8008819714756333830)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddRolesToUser (20210821164504)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (87.2ms)[0m  [1m[35mALTER TABLE "users" ADD "role" integer DEFAULT 0 NOT NULL[0m
+  ↳ db/migrate/20210821164504_add_roles_to_user.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210821164504"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8008819714756333830)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:47:30 +0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/sprockets-rails-3.2.2/lib/sprockets/rails/quiet_assets.rb:13
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/api/chat/create.rb:17
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ lib/api/chat/create.rb:17
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:47:54 +0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/sprockets-rails-3.2.2/lib/sprockets/rails/quiet_assets.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/api/chat/create.rb:18
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ lib/api/chat/create.rb:18
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:47:55 +0700
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/api/chat/create.rb:18
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ lib/api/chat/create.rb:18
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:48:49 +0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/sprockets-rails-3.2.2/lib/sprockets/rails/quiet_assets.rb:13
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:48:52 +0700
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:49:02 +0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/sprockets-rails-3.2.2/lib/sprockets/rails/quiet_assets.rb:13
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:49:21 +0700
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:49:22 +0700
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:49:22 +0700
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:49:22 +0700
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:49:23 +0700
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:49:23 +0700
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:49:23 +0700
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:49:23 +0700
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:49:23 +0700
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:49:24 +0700
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:49:32 +0700
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:49:33 +0700
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:49:33 +0700
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:49:33 +0700
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:50:31 +0700
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/sprockets-rails-3.2.2/lib/sprockets/rails/quiet_assets.rb:13
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:51:28 +0700
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:51:29 +0700
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:51:29 +0700
+Started POST "/api/v1/chat/" for ::1 at 2021-08-21 23:51:37 +0700
+Started POST "/api/v1/user" for ::1 at 2021-08-22 00:00:19 +0700
+  [1m[35m (40.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/sprockets-rails-3.2.2/lib/sprockets/rails/quiet_assets.rb:13
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/user"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/api/v1/users" for ::1 at 2021-08-22 00:00:28 +0700
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/users"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/api/v1/users/sign_up" for ::1 at 2021-08-22 00:00:39 +0700
+Started POST "/api/v1/users/sign_up" for ::1 at 2021-08-22 00:00:54 +0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/sprockets-rails-3.2.2/lib/sprockets/rails/quiet_assets.rb:13
+Started POST "/api/v1/users/sign_up" for ::1 at 2021-08-22 00:00:54 +0700
+Started POST "/api/v1/users/sign_up" for ::1 at 2021-08-22 00:00:55 +0700
+Started POST "/api/v1/users/sign_up" for ::1 at 2021-08-22 00:01:09 +0700
+Started POST "/api/v1/users/sign_up" for ::1 at 2021-08-22 00:01:23 +0700
+Started POST "/api/v1/users/sign_up" for ::1 at 2021-08-22 00:01:29 +0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/sprockets-rails-3.2.2/lib/sprockets/rails/quiet_assets.rb:13
+Started POST "/api/v1/users/sign_up" for ::1 at 2021-08-22 00:01:51 +0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/sprockets-rails-3.2.2/lib/sprockets/rails/quiet_assets.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/api/users/sign_up.rb:12
+  [1m[36mUser Exists (42.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@a"], ["LIMIT", 1]]
+  ↳ lib/api/users/sign_up.rb:12
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ lib/api/users/sign_up.rb:12
+Started POST "/api/v1/users/sign_up" for ::1 at 2021-08-22 00:01:56 +0700
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/api/users/sign_up.rb:12
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@a1"], ["LIMIT", 1]]
+  ↳ lib/api/users/sign_up.rb:12
+  [1m[36mUser Create (44.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "a@a1"], ["encrypted_password", "$2a$12$ZlfmcFQLvaCqMUBVup8Z7u0EasEonk.k4tTIPWpYhlXNlRhly4t3G"], ["confirmation_token", "AAsaYsnzfm6z3zj72yQy"], ["confirmation_sent_at", "2021-08-21 17:01:56.405115"], ["created_at", "2021-08-21 17:01:56.404809"], ["updated_at", "2021-08-21 17:01:56.404809"]]
+  ↳ lib/api/users/sign_up.rb:12
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/api/users/sign_up.rb:12
+  Rendering /Users/storozhenko/.rvm/gems/ruby-2.6.5/gems/devise-4.8.0/app/views/devise/mailer/confirmation_instructions.html.erb
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/gems/devise-4.8.0/app/views/devise/mailer/confirmation_instructions.html.erb (1.7ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 39.8ms
+Sent mail to a@a1 (5.6ms)
+Date: Sun, 22 Aug 2021 00:01:56 +0700
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: a@a1
+Message-ID: <612131848fd29_84423fea384fcfec73748@192.168.0.3.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome a@a1!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=AAsaYsnzfm6z3zj72yQy">Confirm my account</a></p>
+
+Started GET "/users/confirmation?confirmation_token=AAsaYsnzfm6z3zj72yQy" for ::1 at 2021-08-22 00:02:00 +0700
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"AAsaYsnzfm6z3zj72yQy"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "AAsaYsnzfm6z3zj72yQy"], ["LIMIT", 1]]
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rack-2.2.3/lib/rack/tempfile_reaper.rb:15
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rack-2.2.3/lib/rack/tempfile_reaper.rb:15
+  [1m[36mUser Update (66.9ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["confirmed_at", "2021-08-21 17:02:00.223578"], ["updated_at", "2021-08-21 17:02:00.227211"], ["id", 2]]
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rack-2.2.3/lib/rack/tempfile_reaper.rb:15
+  [1m[35m (38.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rack-2.2.3/lib/rack/tempfile_reaper.rb:15
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 133ms (ActiveRecord: 108.3ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-22 00:02:00 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering /Users/storozhenko/.rvm/gems/ruby-2.6.5/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (1.6ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (24.1ms)
+Completed 200 OK in 1394ms (Views: 1386.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/users/sign_up" for ::1 at 2021-08-22 00:03:41 +0700
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/api/users/sign_up.rb:12
+  [1m[36mUser Exists (2.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@a1"], ["LIMIT", 1]]
+  ↳ lib/api/users/sign_up.rb:12
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ lib/api/users/sign_up.rb:12
+Started POST "/api/v1/users/sign_in" for ::1 at 2021-08-22 00:03:48 +0700
+Started POST "/api/v1/users/sign_in" for ::1 at 2021-08-22 00:03:57 +0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/sprockets-rails-3.2.2/lib/sprockets/rails/quiet_assets.rb:13
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@a1"], ["LIMIT", 1]]
+  ↳ lib/api/users/sign_in.rb:12
+Started POST "/api/v1/users/sign_in" for ::1 at 2021-08-22 00:05:26 +0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/sprockets-rails-3.2.2/lib/sprockets/rails/quiet_assets.rb:13
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@a1"], ["LIMIT", 1]]
+  ↳ lib/api/users/sign_in.rb:12
+Started POST "/api/v1/chat/" for ::1 at 2021-08-22 00:05:46 +0700
+Started GET "/admin" for ::1 at 2021-08-22 00:06:07 +0700
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[35m (43.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "chats"[0m
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/lib/rails_admin/adapters/active_record.rb:43
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "chat_users"[0m
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/lib/rails_admin/adapters/active_record.rb:43
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "messages"[0m
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/lib/rails_admin/adapters/active_record.rb:43
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/lib/rails_admin/config/actions/dashboard.rb:34
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/lib/rails_admin/adapters/active_record.rb:43
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/lib/rails_admin/config/actions/dashboard.rb:34
+  Rendering /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (36.0ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/_head.html.haml (643.1ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/_secondary_navigation.html.haml (2.7ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/_navigation.html.haml (7.0ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (2.9ms)
+  Rendering /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/pjax.html.haml (3.1ms)
+Completed 200 OK in 1133ms (Views: 709.3ms | ActiveRecord: 53.4ms)
+
+
+Started GET "/admin/user?_pjax=%5Bdata-pjax-container%5D" for ::1 at 2021-08-22 00:06:10 +0700
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"user"}
+  Rendering /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY users.id desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/index.html.haml:95
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (87.0ms)
+Completed 200 OK in 116ms (Views: 100.8ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/admin/user/2/edit?_pjax=%5Bdata-pjax-container%5D" for ::1 at 2021-08-22 00:06:11 +0700
+Processing by RailsAdmin::MainController#edit as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"user", "id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/lib/rails_admin/adapters/active_record.rb:16
+  Rendering /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/edit.html.haml within layouts/rails_admin/pjax
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_field.html.haml (2.6ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_field.html.haml (0.5ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_field.html.haml (0.4ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_datetime.html.haml (2.6ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_datetime.html.haml (1.6ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_field.html.haml (1.7ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_datetime.html.haml (0.4ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_datetime.html.haml (0.5ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_field.html.haml (0.1ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_datetime.html.haml (0.6ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_datetime.html.haml (0.3ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_field.html.haml (0.4ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_datetime.html.haml (0.5ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  [1m[36mChatUser Load (1.5ms)[0m  [1m[34mSELECT "chat_users".* FROM "chat_users" WHERE "chat_users"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_filtering_multiselect.html.haml:10
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "chat_users"[0m
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/lib/rails_admin/adapters/active_record.rb:43
+  [1m[36mChatUser Load (0.3ms)[0m  [1m[34mSELECT "chat_users".* FROM "chat_users" ORDER BY chat_users.id desc[0m
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_filtering_multiselect.html.haml:20
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_filtering_multiselect.html.haml:20
+  [1m[36mChat Load (0.3ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE "chats"."id" = $1[0m  [["id", 1]]
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_filtering_multiselect.html.haml:20
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_filtering_multiselect.html.haml (49.0ms)
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" INNER JOIN "chat_users" ON "chats"."id" = "chat_users"."chat_id" WHERE "chat_users"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_filtering_multiselect.html.haml:10
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "chats"[0m
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/lib/rails_admin/adapters/active_record.rb:43
+  [1m[36mChat Load (0.2ms)[0m  [1m[34mSELECT "chats".* FROM "chats" ORDER BY chats.id desc[0m
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_filtering_multiselect.html.haml:20
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_form_filtering_multiselect.html.haml (12.4ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/_submit_buttons.html.haml (5.1ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/edit.html.haml within layouts/rails_admin/pjax (169.3ms)
+Completed 200 OK in 185ms (Views: 165.3ms | ActiveRecord: 14.6ms)
+
+
+Started PUT "/admin/user/2/edit" for ::1 at 2021-08-22 00:06:17 +0700
+Processing by RailsAdmin::MainController#edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bQ9+fQdGLPXgplFcCqjTRYQkalJT/4iO0GDZdibrp+1TIu10+n/SRZ3eeVowBzdiNKKolqndzx0L5Fx+rgfg/w==", "user"=>{"email"=>"a@a1", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "reset_password_sent_at"=>"[FILTERED]", "remember_created_at"=>"", "sign_in_count"=>"0", "current_sign_in_at"=>"", "last_sign_in_at"=>"", "current_sign_in_ip"=>"", "last_sign_in_ip"=>"", "confirmation_token"=>"AAsaYsnzfm6z3zj72yQy", "confirmed_at"=>"August 21, 2021 17:02", "confirmation_sent_at"=>"August 21, 2021 17:01", "unconfirmed_email"=>"", "failed_attempts"=>"0", "unlock_token"=>"", "locked_at"=>"", "role"=>"1", "chat_user_ids"=>["", ""], "chat_ids"=>["", ""]}, "return_to"=>"http://localhost:3000/admin/user", "_save"=>"", "model_name"=>"user", "id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/lib/rails_admin/adapters/active_record.rb:16
+  [1m[36mChatUser Load (0.3ms)[0m  [1m[34mSELECT "chat_users".* FROM "chat_users" WHERE 1=0[0m
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/lib/rails_admin/adapters/active_record/abstract_object.rb:19
+  [1m[36mChatUser Load (0.3ms)[0m  [1m[34mSELECT "chat_users".* FROM "chat_users" WHERE "chat_users"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/lib/rails_admin/adapters/active_record/abstract_object.rb:19
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE 1=0[0m
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/lib/rails_admin/adapters/active_record/abstract_object.rb:19
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" INNER JOIN "chat_users" ON "chats"."id" = "chat_users"."chat_id" WHERE "chat_users"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/lib/rails_admin/adapters/active_record/abstract_object.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/lib/rails_admin/adapters/active_record/abstract_object.rb:23
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = $1, "confirmation_sent_at" = $2, "role" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["confirmed_at", "2021-08-21 17:02:00"], ["confirmation_sent_at", "2021-08-21 17:01:00"], ["role", 1], ["updated_at", "2021-08-21 17:06:18.006415"], ["id", 2]]
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/lib/rails_admin/adapters/active_record/abstract_object.rb:23
+  [1m[35m (39.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/lib/rails_admin/adapters/active_record/abstract_object.rb:23
+Redirected to http://localhost:3000/admin/user
+Completed 302 Found in 58ms (ActiveRecord: 42.7ms)
+
+
+Started GET "/admin/user" for ::1 at 2021-08-22 00:06:18 +0700
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"model_name"=>"user"}
+  Rendering /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY users.id desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/index.html.haml:95
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/application (42.6ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/_head.html.haml (105.0ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/_secondary_navigation.html.haml (3.4ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/_navigation.html.haml (7.4ms)
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (3.3ms)
+  Rendering /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /Users/storozhenko/.rvm/gems/ruby-2.6.5/bundler/gems/rails_admin-219333b301e4/app/views/layouts/rails_admin/pjax.html.haml (4.3ms)
+Completed 200 OK in 193ms (Views: 183.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/chat/" for ::1 at 2021-08-22 00:06:46 +0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/sprockets-rails-3.2.2/lib/sprockets/rails/quiet_assets.rb:13
+Started POST "/api/v1/chat/" for ::1 at 2021-08-22 00:07:03 +0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/sprockets-rails-3.2.2/lib/sprockets/rails/quiet_assets.rb:13
+Started POST "/api/v1/chat/" for ::1 at 2021-08-22 00:07:22 +0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/sprockets-rails-3.2.2/lib/sprockets/rails/quiet_assets.rb:13
+Started POST "/api/v1/chat/" for ::1 at 2021-08-22 00:08:33 +0700
+  
+TypeError (no implicit conversion of String into Integer):
+  
+lib/api/api_helper.rb:22:in `[]'
+lib/api/api_helper.rb:22:in `authenticated'
+lib/api/defaults.rb:12:in `block in authorize!'
+Started POST "/api/v1/chat/" for ::1 at 2021-08-22 00:09:17 +0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/sprockets-rails-3.2.2/lib/sprockets/rails/quiet_assets.rb:13
+  
+TypeError (no implicit conversion of String into Integer):
+  
+lib/api/api_helper.rb:23:in `[]'
+lib/api/api_helper.rb:23:in `authenticated'
+lib/api/defaults.rb:12:in `block in authorize!'
+Started POST "/api/v1/users/sign_in" for ::1 at 2021-08-22 00:09:51 +0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/sprockets-rails-3.2.2/lib/sprockets/rails/quiet_assets.rb:13
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@a1"], ["LIMIT", 1]]
+  ↳ lib/api/users/sign_in.rb:12
+Started POST "/api/v1/chat/" for ::1 at 2021-08-22 00:09:58 +0700
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/api/api_helper.rb:23
+Started POST "/api/v1/chat/" for ::1 at 2021-08-22 00:10:57 +0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/sprockets-rails-3.2.2/lib/sprockets/rails/quiet_assets.rb:13
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/api/api_helper.rb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/api/api_helper.rb:23
+Started POST "/api/v1/chat/" for ::1 at 2021-08-22 00:11:14 +0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/sprockets-rails-3.2.2/lib/sprockets/rails/quiet_assets.rb:13
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/api/api_helper.rb:22
+  
+NoMethodError (undefined method `sub_admin?' for nil:NilClass):
+  
+lib/api/api_helper.rb:22:in `authenticated'
+lib/api/defaults.rb:12:in `block in authorize!'
+Started POST "/api/v1/chat/" for ::1 at 2021-08-22 00:11:24 +0700
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/sprockets-rails-3.2.2/lib/sprockets/rails/quiet_assets.rb:13
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/api/api_helper.rb:22
+  
+NoMethodError (undefined method `sub_admin?' for nil:NilClass):
+  
+lib/api/api_helper.rb:22:in `authenticated'
+lib/api/defaults.rb:12:in `block in authorize!'
+Started POST "/api/v1/chat/" for ::1 at 2021-08-22 00:11:25 +0700
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/api/api_helper.rb:22
+  
+NoMethodError (undefined method `sub_admin?' for nil:NilClass):
+  
+lib/api/api_helper.rb:22:in `authenticated'
+lib/api/defaults.rb:12:in `block in authorize!'
+Started POST "/api/v1/chat/" for ::1 at 2021-08-22 00:11:40 +0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/sprockets-rails-3.2.2/lib/sprockets/rails/quiet_assets.rb:13
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/api/api_helper.rb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/api/api_helper.rb:24
+Started POST "/api/v1/chat/" for ::1 at 2021-08-22 00:11:41 +0700
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/api/api_helper.rb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/api/api_helper.rb:24
+Started POST "/api/v1/chat/" for ::1 at 2021-08-22 00:11:41 +0700
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/api/api_helper.rb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/api/api_helper.rb:24
+Started POST "/api/v1/chat/" for ::1 at 2021-08-22 00:12:11 +0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/storozhenko/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/sprockets-rails-3.2.2/lib/sprockets/rails/quiet_assets.rb:13
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/api/api_helper.rb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/api/api_helper.rb:24
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/api/chat/create.rb:13
+  [1m[36mChat Create (0.6ms)[0m  [1m[32mINSERT INTO "chats" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "1"]]
+  ↳ lib/api/chat/create.rb:13
+  [1m[36mChatUser Create (0.4ms)[0m  [1m[32mINSERT INTO "chat_users" ("user_id", "chat_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 2], ["chat_id", 2]]
+  ↳ lib/api/chat/create.rb:13
+  [1m[35m (20.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/api/chat/create.rb:13
