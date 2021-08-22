@@ -8,7 +8,6 @@ module API
           authenticated =
             case role
             when :sub_admin
-              p '1111'
               self.authenticated
             when :admin
               self.authenticated_admin

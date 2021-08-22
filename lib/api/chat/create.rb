@@ -7,10 +7,14 @@ module API
 
       params do
         requires :name, type: String
+        optional :with_user_id, type: Integer
       end
 
       post do
-        ::Chat.create!(name: params[:name], users: [@user])
+        users = [@user]
+        users << with_user if params[:with_user] && (with_user = User.find_by(id: params[:with_user_id]))
+
+        Chat.create!(name: params[:name], users: users)
 
         ''
       rescue => error
