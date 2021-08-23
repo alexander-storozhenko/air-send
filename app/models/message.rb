@@ -9,6 +9,6 @@ class Message < ApplicationRecord
   alias_attribute :sender, :user
 
   def validate_user_chats
-    raise 'validate error' unless chats.order(:id) == Chat.where(users: [sender]).order(:id).pluck(:id)
+    raise 'validate error' unless Chat.where(users: [sender]).include?(chats)
   end
 end
