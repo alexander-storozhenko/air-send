@@ -3,15 +3,27 @@ module API
     class Send < Grape::API
       include Defaults
 
+      helpers FileAPI
+
       authorize!
 
+      MAX_FILE_SIZE = 200.freeze
+
       params do
-        requires :content, type: String
-        requires :to_chats, type: Array[Integer]
+        requires :text, type: String
+        requires :to_chats, type: Integer
+        optional :file, type: File
       end
 
       post do
-        Message.create!(content: params[:content], sender: @user, chats: params[:to_chats])
+        content_type 'multipart/form-data'
+        file = params[:file]
+        text = params[:text]
+
+        chats = ::Chat.where(id: params[:to_chats])
+
+        message = Message.create!(content: text, sender: User.first, chats: chats)
+        message.file = attachment(file)
 
         ''
       rescue => error

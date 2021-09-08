@@ -1,5 +1,6 @@
 require_relative 'defaults'
 require_relative 'api_helper'
+require_relative 'file_api'
 
 require_relative 'chat/root'
 require_relative 'users/root'

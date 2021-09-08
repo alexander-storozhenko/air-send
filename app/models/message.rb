@@ -8,7 +8,11 @@ class Message < ApplicationRecord
 
   alias_attribute :sender, :user
 
+  has_one_attached :file
+
   def validate_user_chats
-    raise 'validate error' unless Chat.where(users: [sender]).include?(chats)
+    chats.each do |chat|
+      raise "User #{sender.email} does not have permission to chat '#{chat.name}'!" unless chat.users.include?(sender)
+    end
   end
 end
