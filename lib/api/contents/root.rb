@@ -1,12 +1,12 @@
 require_relative 'send'
-require_relative 'all_in_chat'
+require_relative 'all_in_folder'
 
 module API
-  module Messages
+  module Contents
     class Root < Grape::API
-      namespace 'messages' do
+      namespace 'contents' do
         mount Send
-        mount AllInChat
+        mount AllInFolder
       end
     end
   end

@@ -2,9 +2,9 @@ require_relative 'defaults'
 require_relative 'api_helper'
 require_relative 'file_api'
 
-require_relative 'chat/root'
+require_relative 'folders/root'
 require_relative 'users/root'
-require_relative 'messages/root'
+require_relative 'contents/root'
 
 module API
   class API < Grape::API
@@ -14,8 +14,8 @@ module API
 
     namespace 'api' do
       namespace 'v1' do
-        mount Chat::Root
-        mount Messages::Root
+        mount Folders::Root
+        mount Contents::Root
         mount Users::Root
       end
     end

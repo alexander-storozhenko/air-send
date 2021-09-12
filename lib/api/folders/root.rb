@@ -1,9 +1,9 @@
 require_relative 'create'
 
 module API
-  module Chat
+  module Folders
     class Root < Grape::API
-      namespace 'chat' do
+      namespace 'folder' do
         mount Create
       end
     end

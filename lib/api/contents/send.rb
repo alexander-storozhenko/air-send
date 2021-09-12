@@ -1,11 +1,11 @@
 module API
-  module Messages
+  module Contents
     class Send < Grape::API
       include Defaults
 
       helpers FileAPI
 
-      authorize!
+      # authorize!
 
       MAX_FILE_SIZE = 200.freeze
 
@@ -20,9 +20,9 @@ module API
         file = params[:file]
         text = params[:text]
 
-        chats = ::Chat.where(id: params[:to_chats])
+        chats = ::Folder.where(id: params[:to_chats])
 
-        message = Message.create!(content: text, sender: User.first, chats: chats)
+        message = Content.create!(content: text, sender: User.first, chats: chats)
         message.file = attachment(file)
 
         ''

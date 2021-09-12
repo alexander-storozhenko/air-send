@@ -36,32 +36,32 @@ ActiveRecord::Schema.define(version: 2021_09_08_173413) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "chat_messages", force: :cascade do |t|
-    t.bigint "chat_id"
-    t.bigint "message_id"
-    t.index ["chat_id"], name: "index_chat_messages_on_chat_id"
-    t.index ["message_id"], name: "index_chat_messages_on_message_id"
-  end
-
-  create_table "chat_users", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "chat_id"
-    t.index ["chat_id"], name: "index_chat_users_on_chat_id"
-    t.index ["user_id"], name: "index_chat_users_on_user_id"
-  end
-
-  create_table "chats", force: :cascade do |t|
-    t.string "name"
-  end
-
-  create_table "messages", force: :cascade do |t|
-    t.string "content"
+  create_table "contents", force: :cascade do |t|
+    t.string "text"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "chat_id"
-    t.index ["chat_id"], name: "index_messages_on_chat_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
+    t.bigint "folder_id"
+    t.index ["folder_id"], name: "index_contents_on_folder_id"
+    t.index ["user_id"], name: "index_contents_on_user_id"
+  end
+
+  create_table "folder_contents", force: :cascade do |t|
+    t.bigint "folder_id"
+    t.bigint "content_id"
+    t.index ["content_id"], name: "index_folder_contents_on_content_id"
+    t.index ["folder_id"], name: "index_folder_contents_on_folder_id"
+  end
+
+  create_table "folder_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "folder_id"
+    t.index ["folder_id"], name: "index_folder_users_on_folder_id"
+    t.index ["user_id"], name: "index_folder_users_on_user_id"
+  end
+
+  create_table "folders", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "users", force: :cascade do |t|
