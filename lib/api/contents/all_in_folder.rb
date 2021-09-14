@@ -12,10 +12,10 @@ module API
       end
 
       get 'all_in_folder/:folder_name' do
-        folder = User.first.folders.find_by(name: params[:folder_name])
+        folder = @user.folders.find_by(name: params[:folder_name])
 
         raise 'Folder not found!' unless folder
-        # raise 'Forbidden' unless Folder.users.include?(@user)
+        raise 'Forbidden' unless Folder.users.include?(@user)
 
         folder.contents.order(:updated_at)
       rescue => error
