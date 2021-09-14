@@ -22,8 +22,11 @@ module API
         folder = User.first.folders.find_by(name: 'default')
 
         message = Content.create!(text: text, sender: User.first, folders: [folder])
+        p "11"
 
+        p file
         message.file = attachment(file)
+        p "22"
         ''
       rescue => error
         error!(error, 400)

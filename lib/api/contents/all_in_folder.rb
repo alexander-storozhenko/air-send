@@ -8,16 +8,16 @@ module API
       MESSAGES_SIZE = 50
 
       params do
-        requires :folder_id, type: Integer
+        requires :folder_name, type: String
       end
 
-      get 'all_in_folder/:chat_id' do
-        chat = Folder.find_by(params[:folder_id])
+      get 'all_in_folder/:folder_name' do
+        folder = User.first.folders.find_by(name: params[:folder_name])
 
-        raise 'Folder not found!' unless chat
-        raise 'Forbidden' unless Folder.users.include?(@user)
+        raise 'Folder not found!' unless folder
+        # raise 'Forbidden' unless Folder.users.include?(@user)
 
-        Content.last(MESSAGES_SIZE).order(:updated_at)
+        folder.contents.order(:updated_at)
       rescue => error
         error!(error, 400)
       end
