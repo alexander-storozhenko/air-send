@@ -3,7 +3,7 @@ module API
     class AllInFolder < Grape::API
       include Defaults
 
-      # authorize!
+      authorize!
 
       MESSAGES_SIZE = 50
 
