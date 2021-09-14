@@ -2,7 +2,7 @@ class Content < ApplicationRecord
   belongs_to :user
 
   has_many :folder_contents
-  has_many :contents, through: :folder_contents
+  has_many :folders, through: :folder_contents
 
   before_create :validate_user_folders
 

@@ -11,7 +11,6 @@ module API
 
       params do
         requires :text, type: String
-        requires :to_chats, type: Integer
         optional :file, type: File
       end
 
@@ -20,11 +19,11 @@ module API
         file = params[:file]
         text = params[:text]
 
-        chats = ::Folder.where(id: params[:to_chats])
+        folder = User.first.folders.find_by(name: 'default')
 
-        message = Content.create!(content: text, sender: User.first, chats: chats)
+        message = Content.create!(text: text, sender: User.first, folders: [folder])
+
         message.file = attachment(file)
-
         ''
       rescue => error
         error!(error, 400)
