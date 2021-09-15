@@ -5,7 +5,7 @@ module API
 
       helpers FileAPI
 
-      # authorize!
+      authorize!
 
       MAX_FILE_SIZE = 200.freeze
 
@@ -19,14 +19,11 @@ module API
         file = params[:file]
         text = params[:text]
 
-        folder = User.first.folders.find_by(name: 'default')
+        folder = @user.folders.find_by(name: 'default')
 
-        message = Content.create!(text: text, sender: User.first, folders: [folder])
-        p "11"
-
-        p file
+        message = Content.create!(text: text, sender: @user, folders: [folder])
         message.file = attachment(file)
-        p "22"
+
         ''
       rescue => error
         error!(error, 400)
